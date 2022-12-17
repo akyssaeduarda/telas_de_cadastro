@@ -1,13 +1,13 @@
 
 import { Link } from 'react-router-dom';
-import './styles/cadastro.css';
+import './styles/cadastroEmpresasPev.css';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { TbLetterX } from 'react-icons/tb';
 import { RxAccessibility } from 'react-icons/rx';
 //Telas
 import UserForm from './telas/UserForm';
 import ReviewForm from './telas/ReviewForm';
-
+import TanksForm from './telas/Tanks';
 
 
 //Hooks
@@ -37,7 +37,7 @@ const formTemplate = {
 };
 
 
-const CadastroUsuario = () => {
+const CadastroEmpresaPev = () => {
     
     const [dados, setDados] = useState(formTemplate)
 
@@ -53,34 +53,34 @@ const CadastroUsuario = () => {
     const formTelas = [
     <UserForm dados={dados} updadeFieldHandler={updadeFieldHandler}/>,
      <ReviewForm dados={dados} updadeFieldHandler={updadeFieldHandler}/>,
-      ];
+      <TanksForm dados={dados} updadeFieldHandler={updadeFieldHandler} />];
 
     const { atualPasso, atualTela, alterarPasso, ultimoPasso, primeiroPasso  } = useForm(formTelas)
 
     return (
-        <div className='telaCadastro'>
-            <div className='banner-cadastro' >
-                <h1 className='txt-banner'>Cadastro</h1>
+        <div className='telaCadastropv'>
+            <div className='banner-cadastropv' >
+                <h1 className='txt-bannerpv'>Cadastro</h1>
                 <span >
-                <IoIosArrowDroprightCircle className='icon-seta' />
+                <IoIosArrowDroprightCircle className='icon-setapv' />
                 </span>
             </div>
 
-            <div className='main'>
-                <div className='titulo'>
+            <div className='mainpv'>
+                <div className='titulopv'>
                     <h1 >Cadastre-se na Plataforma Coneta Recycle</h1>
-                    <p>Quero descartar um material</p>
+                    <p>Quero ser um Ponto de Coleta</p>
                 </div>
 
 
-                <div className='form-container'>
+                <div className='form-containerpv'>
                     
                     <form onSubmit={(e) => alterarPasso(atualPasso + 1, e) }>
-                        <div className='inputs-container'>
+                        <div className='inputs-containerpv'>
                             {atualTela}
                         </div>
                         
-                        <div className='botoes-acoes'>
+                        <div className='botoes-acoespv'>
                             {!primeiroPasso && (
                             <button type='button' onClick={() => alterarPasso(atualPasso - 1)}>
                                 <span>Voltar</span>
@@ -112,7 +112,7 @@ const CadastroUsuario = () => {
                 <button className='botao-sair'><TbLetterX id='x' />
                 </button>
 
-                <button className='botao-acess'><RxAccessibility id='bt-acc'/></button>
+                <button className='botao-acess'><RxAccessibility id='bt-accpv'/></button>
 
 
             </div>
@@ -122,4 +122,4 @@ const CadastroUsuario = () => {
         </div>
     )
 }
-export default CadastroUsuario
+export default CadastroEmpresaPev

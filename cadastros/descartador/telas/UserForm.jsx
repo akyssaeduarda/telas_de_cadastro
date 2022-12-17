@@ -2,7 +2,7 @@ import React from "react";
 import { ImFacebook2 } from 'react-icons/im';
 import { FcGoogle } from 'react-icons/fc';
 
-const UserForm = ({ dados, updadeFieldHandler }) => {
+const UserForm = ({ cadastro, handleChange }) => {
   return (
     <div className="conteiner-useForm">
 
@@ -17,9 +17,10 @@ const UserForm = ({ dados, updadeFieldHandler }) => {
             name="nome"
             id="Nome"
             placeholder="Digite o seu nome"
+            value={cadastro.nome}
+            onChange={handleChange}
             required
-            value={dados.nome || ""}
-            onChange={(e) => updadeFieldHandler("nome", e.target.value)}
+            
           />
         </div>
 
@@ -33,6 +34,8 @@ const UserForm = ({ dados, updadeFieldHandler }) => {
             name="sobrenome"
             id="sobrenome"
             placeholder="Digite o seu sobrenome"
+            value={cadastro.sobrenome}
+            onChange={handleChange}
             required
           />
         </div>
@@ -49,6 +52,8 @@ const UserForm = ({ dados, updadeFieldHandler }) => {
             name="email"
             id="email"
             placeholder="Digite o seu email"
+            value={cadastro.email}
+            onChange={handleChange}
             required
           />
         </div>
@@ -63,6 +68,8 @@ const UserForm = ({ dados, updadeFieldHandler }) => {
             name="senha"
             id="senha"
             placeholder="Digite a sua senha"
+            value={cadastro.senha}
+            onChange={handleChange}
             required
           />
         </div>

@@ -1,59 +1,62 @@
 
 import { Link } from 'react-router-dom';
-import './styles/cadastro.css';
+import './styles/cadastroUsuario.css';
+
+//icons
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { TbLetterX } from 'react-icons/tb';
 import { RxAccessibility } from 'react-icons/rx';
+
 //Telas
 import UserForm from './telas/UserForm';
 import ReviewForm from './telas/ReviewForm';
-import TanksForm from './telas/Tanks';
-
 
 //Hooks
 import { useForm } from './hooks/useForm';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
-const formTemplate = {
-    razaoSocial: "",
-    cep: "",
-    cnpj: "",
-    razaoJuridica: "",
-    complemento: "",
-    cnae: "",
-    email: "",
-    linklogo: "",
-    instagram: "",
-    linkedin: "",
-    whatsapp1: "",
-    whatsapp2: "",
-    nomeResponsavel: "",
-    departamento: "", 
-    emailResponsavel: "",
-    cpf: "",
-    whatsappResponsavel: "",
-    senhaResponsavel: "",
-
-};
+//Axios
+import axios from 'axios';
 
 
-const CadastroEmpresaColetora = () => {
+
+const CadastroUsuario = () => {
     
-    const [dados, setDados] = useState(formTemplate)
+    //const add objetos do inp
+    const [cadastro, setCadastro] = useState({
+        nome:'',
+        sobrenome:'',
+        email:'',
+        senha:'',
+        cpf:'',
+        dataNasc:'',
+        cep:'',
+        telefone:'',
+    });
 
-    const updadeFieldHandler = (key, value) => {
-        setDados((prev) => {
-            return{...prev, [key]: value};
-           
-        })
-    };
+    //recebe o evento de modificação no campo input
+    function handleChange(event){
+        setCadastro({...cadastro,[event.target.name]:event.target.value})
+    }
 
-    
+    //
+    function handleSubmit(event){
+        event.preventDefault();
+        axios.post("http://localhost:8080/usuario", cadastro).then(()=>{
+            console.log("deu tudo certo")
+        })    
+        .catch(()=>{
+            console.log('deu tudo errado')
+        });
+        
+    }
    
+    
+   //cont com as telas
     const formTelas = [
-    <UserForm dados={dados} updadeFieldHandler={updadeFieldHandler}/>,
-     <ReviewForm dados={dados} updadeFieldHandler={updadeFieldHandler}/>,
-      <TanksForm dados={dados} updadeFieldHandler={updadeFieldHandler} />];
+    <UserForm cadastro={cadastro}  handleChange={handleChange}/>,
+     <ReviewForm cadastro={cadastro} handleChange={handleChange}/>,
+      ];
 
     const { atualPasso, atualTela, alterarPasso, ultimoPasso, primeiroPasso  } = useForm(formTelas)
 
@@ -69,30 +72,25 @@ const CadastroEmpresaColetora = () => {
             <div className='main'>
                 <div className='titulo'>
                     <h1 >Cadastre-se na Plataforma Coneta Recycle</h1>
-                    <p>Quero ser uma Empresa Coletora</p>
+                    <p>Quero descartar um material</p>
                 </div>
 
 
                 <div className='form-container'>
                     
-                    <form onSubmit={(e) => alterarPasso(atualPasso + 1, e) }>
+                    <form onSubmit={handleSubmit}>
                         <div className='inputs-container'>
                             {atualTela}
                         </div>
                         
                         <div className='botoes-acoes'>
-                            {!primeiroPasso && (
-                            <button type='button' onClick={() => alterarPasso(atualPasso - 1)}>
-                                <span>Voltar</span>
+                            {primeiroPasso && (
+                            <button type='button' onClick={(e) => alterarPasso(atualPasso + 1, e)}>
+                                Continuar
                             </button>) }
                             
-                            {/*condicional. Se NÃO for o ultimo passo, mostra o botão continuar. Se for o ultimo passo, mostra o botão enviar.*/}
-                            {!ultimoPasso ? 
-                            (<button type='submit'> Continuar </button>) 
-                
-                            :(<button type='button'>Cadastrar</button>)}
-
-                            
+                            {/*condicional. Se for o ultimo passo, mostra o botão cadastrar*/}
+                            {ultimoPasso && (<button type='submit'>Cadastrar</button>)}
 
                         </div>
                     </form>
@@ -122,4 +120,4 @@ const CadastroEmpresaColetora = () => {
         </div>
     )
 }
-export default CadastroEmpresaColetora
+export default CadastroUsuario

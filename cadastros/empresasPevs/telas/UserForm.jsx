@@ -2,18 +2,18 @@ import React from "react";
 
 const UserForm = ({dados, updadeFieldHandler}) => {
   return (
-    <div className="conteiner-useForm">
+    <div className="conteiner-useFormpv">
 
-      <div className='form-control-um'>
-        <div className="form-control">
-          <label htmlFor="razaoSocial">
+      <div className='form-control-umpv'>
+        <div className="form-controlpv">
+          <label htmlFor="razaoSocialpv">
             RAZÃO SOCIAL
           </label>
 
           <input
             type="text"
             name="razaoSocial"
-            id="razaosocial"
+            id="razaosocialpv"
             placeholder="Digite a razão social da sua empresa"
             required
             value={dados.razaoSocial || "" }
@@ -21,28 +21,28 @@ const UserForm = ({dados, updadeFieldHandler}) => {
           />
         </div>
 
-        <div className="form-control">
-          <label htmlFor="cep">
+        <div className="form-controlpv">
+          <label htmlFor="ceppv">
             CEP 
           </label>
 
           <input
             type="text"
             name="cep"
-            id="cep"
+            id="ceppv"
             placeholder="Digite o seu CEP"
             required
           />
         </div>
-        <div className="form-control">
-          <label htmlFor="cnpj">
+        <div className="form-controlpv">
+          <label htmlFor="cnpjpv">
             CNPJ 
           </label>
 
           <input
             type="text"
             name="cnpj"
-            id="cnpj"
+            id="cnpjpv"
             placeholder="Digite o seu CNPJ"
             required
           />
@@ -50,57 +50,57 @@ const UserForm = ({dados, updadeFieldHandler}) => {
 
       </div>
       
-      <div className='form-control-dois'>
-        <div className="form-control">
-          <label htmlFor="razaoJuridica">
+      <div className='form-control-doispv'>
+        <div className="form-controlpv">
+          <label htmlFor="razaoJuridicapv">
             RAZÃO JURÍDICA 
           </label>
 
           <input
             type="text"
             name="razaoJuridica"
-            id="razaojuridica"
+            id="razaojuridicapv"
             placeholder="Digite a razão jurídica da sua empresa"
             required
           />
         </div>
-        <div className="form-control">
-          <label htmlFor="complemento">
+        <div className="form-controlpv">
+          <label htmlFor="complementopv">
             COMPLEMENTO 
           </label>
 
           <input
             type="text"
             name="complemento"
-            id="complemento"
+            id="complementopv"
             placeholder="Digite o complemento da usa localização"
             required
           />
         </div>
-        <div className="form-control">
-          <label htmlFor="cnae">
+        <div className="form-controlpv">
+          <label htmlFor="cnaepv">
             CNAE
           </label>
 
           <input
             type="text"
             name="cnae"
-            id="cnae"
+            id="cnaepv"
             placeholder="Digite o seu CNAE"
             required
           />
         </div>
       </div>
 
-      <div className="form-email">
-        <label htmlFor="email">
+      <div className="form-emailpv">
+        <label htmlFor="emailpv">
           E-MAIL
         </label>
 
         <input
           type="email"
           name="email"
-          id="email"
+          id="emailpv"
           placeholder="Digite o seu e-mail"
           required
         />

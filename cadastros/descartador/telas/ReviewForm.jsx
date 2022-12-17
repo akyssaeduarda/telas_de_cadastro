@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const ReviewForm = ({dados}) => {
+const ReviewForm = ({cadastro, handleChange}) => {
   return (
     <div className="conteiner-useForm">
 
@@ -16,6 +16,8 @@ const ReviewForm = ({dados}) => {
             name="cpf"
             id="cpf"
             placeholder="Digite o seu cpf"
+            value={cadastro.cpf}
+            onChange={handleChange}
             required
           />
         </div>
@@ -26,9 +28,11 @@ const ReviewForm = ({dados}) => {
 
           <input
             type="date"
-            name="data-nasc"
+            name="dataNasc"
             id="data-nasc"
-            placeholder=""
+            placeholder="Digite a sua data de nascimento"
+            value={cadastro.dataNasc}
+            onChange={handleChange}
             required
           />
         </div>
@@ -46,6 +50,8 @@ const ReviewForm = ({dados}) => {
             name="cep"
             id="cep"
             placeholder="Digite o seu cep"
+            value={cadastro.cep}
+            onChange={handleChange}
             required
           />
         </div>
@@ -59,6 +65,8 @@ const ReviewForm = ({dados}) => {
             name="telefone"
             id="telefone"
             placeholder="Digite o telefone"
+            value={cadastro.telefone}
+            onChange={handleChange}
             required
           />
         </div>
@@ -68,7 +76,7 @@ const ReviewForm = ({dados}) => {
         <div className="msg-email">
           <input
             type="checkbox"
-            name="receb-email"
+            name="recebEmail"
             id="receb-email"
           />
 

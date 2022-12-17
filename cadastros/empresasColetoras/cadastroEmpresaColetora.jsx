@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import './styles/cadastro.css';
+import './styles/cadastroEmpresaColetora.css';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { TbLetterX } from 'react-icons/tb';
 import { RxAccessibility } from 'react-icons/rx';
@@ -37,7 +37,7 @@ const formTemplate = {
 };
 
 
-const CadastroEmpresaPev = () => {
+const CadastroEmpresaColetora = () => {
     
     const [dados, setDados] = useState(formTemplate)
 
@@ -58,29 +58,29 @@ const CadastroEmpresaPev = () => {
     const { atualPasso, atualTela, alterarPasso, ultimoPasso, primeiroPasso  } = useForm(formTelas)
 
     return (
-        <div className='telaCadastro'>
-            <div className='banner-cadastro' >
-                <h1 className='txt-banner'>Cadastro</h1>
+        <div className='telaCadastroec'>
+            <div className='banner-cadastroec' >
+                <h1 className='txt-bannerec'>Cadastro</h1>
                 <span >
-                <IoIosArrowDroprightCircle className='icon-seta' />
+                <IoIosArrowDroprightCircle className='icon-setaec' />
                 </span>
             </div>
 
-            <div className='main'>
-                <div className='titulo'>
+            <div className='mainec'>
+                <div className='tituloec'>
                     <h1 >Cadastre-se na Plataforma Coneta Recycle</h1>
-                    <p>Quero ser um Ponto de Coleta</p>
+                    <p>Quero ser uma Empresa Coletora</p>
                 </div>
 
 
-                <div className='form-container'>
+                <div className='form-containerec'>
                     
                     <form onSubmit={(e) => alterarPasso(atualPasso + 1, e) }>
-                        <div className='inputs-container'>
+                        <div className='inputs-containerec'>
                             {atualTela}
                         </div>
                         
-                        <div className='botoes-acoes'>
+                        <div className='botoes-acoesec'>
                             {!primeiroPasso && (
                             <button type='button' onClick={() => alterarPasso(atualPasso - 1)}>
                                 <span>Voltar</span>
@@ -101,7 +101,7 @@ const CadastroEmpresaPev = () => {
 
 
 
-                <div className='link-loguin'>
+                <div className='link-loguinec'>
                     <p>Ja possui uma conta?</p>
                     <a href='/'>ENTRE AGORA</a>
                 </div>
@@ -109,10 +109,10 @@ const CadastroEmpresaPev = () => {
             </div>
 
             <div className='icons'>
-                <button className='botao-sair'><TbLetterX id='x' />
+                <button className='botao-sair'><TbLetterX id='xec' />
                 </button>
 
-                <button className='botao-acess'><RxAccessibility id='bt-acc'/></button>
+                <button className='botao-acess'><RxAccessibility id='bt-accec'/></button>
 
 
             </div>
@@ -122,4 +122,4 @@ const CadastroEmpresaPev = () => {
         </div>
     )
 }
-export default CadastroEmpresaPev
+export default CadastroEmpresaColetora

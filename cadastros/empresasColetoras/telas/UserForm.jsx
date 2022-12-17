@@ -2,18 +2,18 @@ import React from "react";
 
 const UserForm = ({dados, updadeFieldHandler}) => {
   return (
-    <div className="conteiner-useForm">
+    <div className="conteiner-useFormec">
 
-      <div className='form-control-um'>
-        <div className="form-control">
-          <label htmlFor="razaoSocial">
+      <div className='form-control-umec'>
+        <div className="form-controlec">
+          <label htmlFor="razaoSocialec">
             RAZÃO SOCIAL
           </label>
 
           <input
             type="text"
             name="razaoSocial"
-            id="razaosocial"
+            id="razaosocialec"
             placeholder="Digite a razão social da sua empresa"
             required
             value={dados.razaoSocial || "" }
@@ -21,28 +21,28 @@ const UserForm = ({dados, updadeFieldHandler}) => {
           />
         </div>
 
-        <div className="form-control">
-          <label htmlFor="cep">
+        <div className="form-controlec">
+          <label htmlFor="cepec">
             CEP 
           </label>
 
           <input
             type="text"
             name="cep"
-            id="cep"
+            id="cepec"
             placeholder="Digite o seu CEP"
             required
           />
         </div>
-        <div className="form-control">
-          <label htmlFor="cnpj">
+        <div className="form-controlec">
+          <label htmlFor="cnpjec">
             CNPJ 
           </label>
 
           <input
             type="text"
             name="cnpj"
-            id="cnpj"
+            id="cnpjec"
             placeholder="Digite o seu CNPJ"
             required
           />
@@ -50,57 +50,57 @@ const UserForm = ({dados, updadeFieldHandler}) => {
 
       </div>
       
-      <div className='form-control-dois'>
-        <div className="form-control">
-          <label htmlFor="razaoJuridica">
+      <div className='form-control-doisec'>
+        <div className="form-controlec">
+          <label htmlFor="razaoJuridicaec">
             RAZÃO JURÍDICA 
           </label>
 
           <input
             type="text"
             name="razaoJuridica"
-            id="razaojuridica"
+            id="razaojuridicaec"
             placeholder="Digite a razão jurídica da sua empresa"
             required
           />
         </div>
-        <div className="form-control">
-          <label htmlFor="complemento">
+        <div className="form-controlec">
+          <label htmlFor="complementoec">
             COMPLEMENTO 
           </label>
 
           <input
             type="text"
             name="complemento"
-            id="complemento"
+            id="complementoec"
             placeholder="Digite o complemento da usa localização"
             required
           />
         </div>
-        <div className="form-control">
-          <label htmlFor="cnae">
+        <div className="form-controlec">
+          <label htmlFor="cnaeec">
             CNAE
           </label>
 
           <input
             type="text"
             name="cnae"
-            id="cnae"
+            id="cnaeec"
             placeholder="Digite o seu CNAE"
             required
           />
         </div>
       </div>
 
-      <div className="form-email">
-        <label htmlFor="email">
+      <div className="form-emailec">
+        <label htmlFor="emailec">
           E-MAIL
         </label>
 
         <input
           type="email"
           name="email"
-          id="email"
+          id="emailec"
           placeholder="Digite o seu e-mail"
           required
         />
